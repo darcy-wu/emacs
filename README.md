@@ -1,0 +1,2 @@
+# emacs
+emacs private config
