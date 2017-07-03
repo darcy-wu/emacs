@@ -33,6 +33,7 @@
   '(
     try
     swiper
+    ;; helm-gtags
     )
 )
 
@@ -47,6 +48,12 @@
     (global-set-key (kbd "C-s") 'swiper)
     )
   )
+
+;; (defun darcy-use/init-helm-gtags ()
+;;   (use-package helm-gtags
+;;     :defer t
+;;    )
+;;   )
 
 ;;(defun darcy-use/init-hungry-delete()
 ;;  (use-package hungry-delete

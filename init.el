@@ -49,6 +49,8 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
+     (python :variables
+             python-enable-yapf-format-on-save t)
      ;; version-control
      darcy-use
      zilongshanren-ui
@@ -59,6 +61,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       key-chord
+                                      ;; elpy
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -339,6 +342,25 @@ you should place your code here."
   (key-chord-mode t)
 
   (hungry-delete-mode t)
+
+  ;; (elpy-enable)
+  ;; (setq elpy-rpc-backend "jedi")
+  ;; ;;(setq jedi:complete-on-dot t)
+
+  ;; ;; prevent redundant intent in using yasnippets
+  ;; (add-hook 'python-mode-hook
+  ;;           '(lambda ()
+  ;;              (setq yas-indent-line nil)))
+
+  ;; (add-hook 'inferior-python-mode-hook
+  ;;           '(evil-mode nil ) )
+  (evil-leader/set-key
+    "ri" 'indent-region
+    "dt" 'dired-move-to-first-file
+    ;; "dy" 'put-file-name-on-clipboard
+    ;; "tt" 'helm-gtags-dwim
+    ;; "tk" 'helm-gtags-pop-stack
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -350,7 +372,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (smeargle orgit org-present magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete try ws-butler winum volatile-highlights vi-tilde-fringe uuidgen toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode paradox spinner org-bullets open-junk-file neotree move-text lorem-ipsum linum-relative link-hint info+ indent-guide hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight dumb-jump f s define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link packed helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line org-projectile org-plus-contrib org-pomodoro alert log4e gntp org-download hungry-delete htmlize gnuplot unfill mwim key-chord wgrep smex ivy-hydra helm-make helm helm-core popup flx counsel-projectile counsel swiper ivy which-key use-package projectile pcre2el macrostep hydra help-fns+ exec-path-from-shell evil-visualstar evil-escape elisp-slime-nav bind-map auto-compile async ace-window))))
+    (find-file-in-project yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic smeargle orgit org-present magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete try ws-butler winum volatile-highlights vi-tilde-fringe uuidgen toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode paradox spinner org-bullets open-junk-file neotree move-text lorem-ipsum linum-relative link-hint info+ indent-guide hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight dumb-jump f s define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link packed helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line org-projectile org-plus-contrib org-pomodoro alert log4e gntp org-download hungry-delete htmlize gnuplot unfill mwim key-chord wgrep smex ivy-hydra helm-make helm helm-core popup flx counsel-projectile counsel swiper ivy which-key use-package projectile pcre2el macrostep hydra help-fns+ exec-path-from-shell evil-visualstar evil-escape elisp-slime-nav bind-map auto-compile async ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
