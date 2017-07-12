@@ -32,7 +32,7 @@
 (defconst darcy-use-packages
   '(
     try
-    swiper
+    ;; swiper
     ;; helm-gtags
     )
 )
@@ -42,12 +42,12 @@
     :ensure t)
   )
 
-(defun darcy-use/init-swiper ()
-  (use-package swiper
-    :config
-    (global-set-key (kbd "C-s") 'swiper)
-    )
-  )
+;; (defun darcy-use/init-swiper ()
+;;   (use-package swiper
+;;     :config
+;;     (global-set-key (kbd "C-s") 'swiper)
+;;     )
+;;   )
 
 ;; (defun darcy-use/init-helm-gtags ()
 ;;   (use-package helm-gtags
