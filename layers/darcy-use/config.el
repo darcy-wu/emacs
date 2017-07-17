@@ -13,10 +13,18 @@
   (interactive)
   (find-file "~/.spacemacs.d/layers/darcy-use/config.el"))
 
+;; verilog-mode
 (require 'verilog-mode)
-
 (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
 (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode))
+
+;; multi-term
+(require 'multi-term)
+(setq multi-term-program "/bin/bash")
+;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
+;; 如果你使用的是mac系统，发现multi-term每行出出了4m，在shell里运行下：tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti 
+(setq system-uses-terminfo nil)
+
 
 ;; Be sure to examine at the help for verilog-auto, and the other
 ;; verilog-auto-* functions for some major coding time savers.
