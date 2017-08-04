@@ -32,6 +32,7 @@
 (defconst darcy-use-packages
   '(
     try
+    command-log-mode
     ;; swiper
     ;; helm-gtags
     )
@@ -39,6 +40,11 @@
 
 (defun darcy-use/init-try ()
   (use-package try
+    :ensure t)
+  )
+
+(defun darcy-use/init-command-log-mode ()
+  (use-package command-log-mode
     :ensure t)
   )
 

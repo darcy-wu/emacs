@@ -358,11 +358,30 @@ you should place your code here."
   (evil-leader/set-key
     "ri" 'indent-region
     "dt" 'dired-move-to-first-file
-    "'"  'eshell
+    ;;"'"  'multi-term-dedicated-open
+    "'"  'multi-term
+    ;;"'n"  'multi-term-next
+    ;;"'p"  'multi-term-prev
     ;; "dy" 'put-file-name-on-clipboard
     ;; "tt" 'helm-gtags-dwim
     ;; "tk" 'helm-gtags-pop-stack
-    )
+    )    
+
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family "新宋体" :size 16)))
+
+  (set-language-environment "UTF-8")
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-clipboard-coding-system 'utf-8)
+  (set-buffer-file-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (modify-coding-system-alist 'process "*" 'utf-8)
+
+  ;; (global-unset-key (kbd "TAB"))
+  ;; (setq indent-tabs-mode nil)
+  ;; (setq default-tab-width 4)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -372,10 +391,9 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(inferior-ess-r-program-name "D:\\Program Files\\R\\R-3.3.2\\bin\\x64\\R.exe")
  '(package-selected-packages
    (quote
-    (pkg-info epl evil goto-chg undo-tree diminish bind-key dash avy ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode find-file-in-project yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic smeargle orgit org-present magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete try ws-butler winum volatile-highlights vi-tilde-fringe uuidgen toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode paradox spinner org-bullets open-junk-file neotree move-text lorem-ipsum linum-relative link-hint info+ indent-guide hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight dumb-jump f s define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link packed helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line org-projectile org-plus-contrib org-pomodoro alert log4e gntp org-download hungry-delete htmlize gnuplot unfill mwim key-chord wgrep smex ivy-hydra helm-make helm helm-core popup flx counsel-projectile counsel swiper ivy which-key use-package projectile pcre2el macrostep hydra help-fns+ exec-path-from-shell evil-visualstar evil-escape elisp-slime-nav bind-map auto-compile async ace-window))))
+    (command-log-mode pkg-info epl evil goto-chg undo-tree diminish bind-key dash avy ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode find-file-in-project yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic smeargle orgit org-present magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete try ws-butler winum volatile-highlights vi-tilde-fringe uuidgen toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode paradox spinner org-bullets open-junk-file neotree move-text lorem-ipsum linum-relative link-hint info+ indent-guide hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight dumb-jump f s define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link packed helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line org-projectile org-plus-contrib org-pomodoro alert log4e gntp org-download hungry-delete htmlize gnuplot unfill mwim key-chord wgrep smex ivy-hydra helm-make helm helm-core popup flx counsel-projectile counsel swiper ivy which-key use-package projectile pcre2el macrostep hydra help-fns+ exec-path-from-shell evil-visualstar evil-escape elisp-slime-nav bind-map auto-compile async ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
